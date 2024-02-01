@@ -10,7 +10,7 @@ module.exports = class CartItem {
     id
     name
     _quantity
-    price
+    _price
     //endregion private attributes
 
     //region public methods
@@ -27,7 +27,7 @@ module.exports = class CartItem {
         this.id = articleId;
         this.name = name;
         this._quantity = quantity;
-        this.price = price;
+        this._price = price;
     }
 
     get articleId() {
@@ -50,15 +50,18 @@ module.exports = class CartItem {
     }
 
     get price() {
-        return this.price;
+        return this._price;
     }
 
     set price(value) {
-        this.price = value;
+        if (value < 1) {
+            throw new InvalidPriceException();
+        }
+        this._price = value;
     }
 
     get total() {
-        return this.quantity * this.price;
+        return this._quantity * this._price;
     }
     //endregion public methods
 
