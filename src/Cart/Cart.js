@@ -26,8 +26,8 @@ module.exports = class Cart {
         return total;
     }
 
-    count() {
-        return this.items.reduce((count, item) => count + item.quantity, 0);
+    count(distinct = false) {
+        return distinct ? this.items.length : this.items.reduce((count, item) => count + item.quantity, 0);
     }
 
 }
