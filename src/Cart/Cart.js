@@ -12,6 +12,9 @@ module.exports = class Cart {
     }
 
     get items() {
+        if (this._items == null) {
+            throw new EmptyCartException();
+        }
         return this._items;
     }
 
