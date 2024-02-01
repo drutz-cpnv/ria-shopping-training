@@ -30,4 +30,15 @@ module.exports = class Cart {
         return distinct ? this.items.length : this.items.reduce((count, item) => count + item.quantity, 0);
     }
 
+    add(item)  {
+        if (this._items == null) this._items = [];
+        if (item instanceof Array) {
+            item.forEach(element => {
+                this._items.push(element);
+            });
+        } else {
+            this._items.push(item);
+        }
+    }
+
 }
