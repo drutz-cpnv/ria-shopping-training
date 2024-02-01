@@ -54,7 +54,7 @@ module.exports = class CartItem {
     }
 
     set price(value) {
-        if (value < 1) {
+        if (value < 10) {
             throw new InvalidPriceException();
         }
         this._price = value;
