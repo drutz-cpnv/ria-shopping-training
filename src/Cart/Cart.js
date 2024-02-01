@@ -26,4 +26,8 @@ module.exports = class Cart {
         return total;
     }
 
+    count() {
+        return this.items.length;
+    }
+
 }
