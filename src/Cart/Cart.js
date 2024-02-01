@@ -32,6 +32,7 @@ module.exports = class Cart {
 
     add(item) {
         if (this._items == null) this._items = [];
+        if (!item) throw new UpdateCartException("Item is null");
         item.forEach(element => {
             this._items.push(element);
         });
